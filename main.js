@@ -1,4 +1,4 @@
-song1 = "";
+song = "";
 song2 = "";
 status1 = "";
 status2 = "";
@@ -13,7 +13,7 @@ scoreRightWrist = 0;
 
 function preload()
 {
-    song1 = loadSound("music.mp3");
+    song = loadSound("music.mp3");
     song2 = loadSound("music2.mp3");
 }
 
@@ -35,7 +35,7 @@ function modelLoaded() {
 function draw() {
     image(video, 0, 0, 500, 400);
 
-    var status1 = song1;
+    
 
     fill("#FF0000");
     stroke("FF0000");
@@ -43,26 +43,24 @@ function draw() {
     if(scoreLeftWrist > 0.2)
     {
         circle(leftWristX,leftWristY,20);
-        song2.stop();
+        song.isPlaying()
+        document.getElementById("song_name").innerHTML = "Playing song 1"
     
     if(status1 = false)
     {
-        song1.play()
-        document.getElementById(song_name).innerHTML = "Playing song 1"
+        song.stop();
     }
 }
-
-    var status2 = song2;
 
     if(scoreRightWrist > 0.2)
     {
         circle(rightWristX,rightWristY,20);
-        song1.stop();
+        song2.isPlaying()
+        document.getElementById("song_name").innerHTML = "Playing song 2"
 
     if(status2 = false)
     {
-        song2.play()
-        document.getElementById(song_name).innerHTML = "Playing song 2"
+        song2.stop()
     }
 }
 }
